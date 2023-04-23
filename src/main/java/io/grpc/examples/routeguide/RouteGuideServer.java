@@ -228,8 +228,10 @@ public class RouteGuideServer {
 
           // Respond with all previous notes at this location.
           for (RouteNote prevNote : notes.toArray(new RouteNote[0])) {
-            logger.info(String.format("Sending message \"%s\" at %s, %s", prevNote.getMessage(), prevNote.getLocation()
-                    .getLatitude(), prevNote.getLocation().getLongitude()));
+            logger.info(String.format("server message \"%s\" at %s, %s",
+                    prevNote.getMessage(),
+                    prevNote.getLocation().getLatitude(),
+                    prevNote.getLocation().getLongitude()));
             responseObserver.onNext(prevNote);
           }
 

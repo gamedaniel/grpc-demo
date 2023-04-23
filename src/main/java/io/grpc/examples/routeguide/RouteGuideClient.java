@@ -219,12 +219,16 @@ public class RouteGuideClient {
 
     try {
       RouteNote[] requests =
-          {newNote("First message", 0, 0), newNote("Second message", 0, 10_000_000),
-              newNote("Third message", 10_000_000, 0), newNote("Fourth message", 10_000_000, 10_000_000)};
+          {newNote("First message", 0, 0),
+                  newNote("Second message", 0, 10_000_000),
+                  newNote("Third message", 10_000_000, 0),
+                  newNote("Fourth message", 10_000_000, 10_000_000)};
 
       for (RouteNote request : requests) {
-        info("Sending message \"{0}\" at {1}, {2}", request.getMessage(), request.getLocation()
-            .getLatitude(), request.getLocation().getLongitude());
+        info("Sending message \"{0}\" at {1}, {2}",
+                request.getMessage(),
+                request.getLocation().getLatitude(),
+                request.getLocation().getLongitude());
         requestObserver.onNext(request);
       }
     } catch (RuntimeException e) {
