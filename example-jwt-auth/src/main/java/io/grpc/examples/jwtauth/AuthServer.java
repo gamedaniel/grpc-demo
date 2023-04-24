@@ -44,7 +44,7 @@ public class AuthServer {
   private void start() throws IOException {
     server = Grpc.newServerBuilderForPort(port, InsecureServerCredentials.create())
         .addService(new GreeterImpl())
-        .intercept(new JwtServerInterceptor())  // add the JwtServerInterceptor
+        .intercept(new JwtServerInterceptor())
         .build()
         .start();
     logger.info("Server started, listening on " + port);
